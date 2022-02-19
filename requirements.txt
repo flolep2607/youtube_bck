@@ -1,4 +1,3 @@
 requests
-json
 xmltodict
 yt-dlp
