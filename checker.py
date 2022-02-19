@@ -50,10 +50,20 @@ ydl_opts = {
 }
 ydl=YoutubeDL(ydl_opts)
 TODOWNLOAD_QUEUE=queue.Queue()
-def download():
-    CHANNEL_ID,video_id,time=TODOWNLOAD_QUEUE.get()
+
+def download(video_id):
+    retries=0
+    while retries<5:
+        try:
+            ydl.download(['https://www.youtube.com/watch?v=%s'%video_id])
+            break
+        except Exception as e:
+            print(e)
+            retries+=1
+            print("Retrying...")
+            continue
     # !!!
-    LAST.set_last(CHANNEL_ID,video_id,time)
+    # LAST.set_last(CHANNEL_ID,video_id,time)
     
 def get_new(CHANNEL_ID):
     print(CHANNEL_ID)
@@ -67,7 +77,7 @@ def get_new(CHANNEL_ID):
         video_id=entry.get('yt:videoId')
         pathlib.Path('videos/%s/%s/'%(CHANNEL_ID,video_id)).mkdir(parents=True, exist_ok=True)
         open("videos/%s/%s/data.json"%(CHANNEL_ID,video_id),'w').write(json.dumps(entry, indent=4))
-        ydl.download(['https://www.youtube.com/watch?v=%s'%video_id])
+        download(video_id)
         LAST.set_last(CHANNEL_ID,video_id,time)
         # TODOWNLOAD_QUEUE.put((CHANNEL_ID,video_id,time))
         
