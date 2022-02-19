@@ -46,7 +46,6 @@ ydl_opts = {
     'format':'bestvideo[height<=?1080]+bestaudio/best',
     # 'progress_hooks': [ytdl_hook],
     "outtmpl":"videos/%(channel_id)s/%(id)s/%(title)s.%(ext)s",
-    "extractor_retries":20,
 }
 ydl=YoutubeDL(ydl_opts)
 TODOWNLOAD_QUEUE=queue.Queue()
