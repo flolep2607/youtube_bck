@@ -1,0 +1,21 @@
+{
+    "callback_url": "http://youtube.flolep.fr/callback.php",
+    "channels_todo": {
+        "channel_id": [],
+        "username": []
+    },
+    "channels_done": {
+        "channel_id": [
+            "UCYdyGYM1aoLpAuCxsP86O1g",
+            "UCX02FIhGGVKBhXbkGmDni9w",
+            "UCC6NjulbwM7Jx24Y1_Y_FTw",
+            "UCKL0IbpAJXGLlA4K-XdZ3Xg",
+            "UCtyYjpiVPf6jJ020Fvn4ALA",
+            "UCynFUJ4zUVuh3GX7bABTjGQ",
+            "UCBlAy4Lhzwnbl7LzFgTUhiw",
+            "UC_i-uMpN1lEyuoUGDq-dajQ",
+            "UC1jpJQzugyhkf1HQQwWuUSA"
+        ],
+        "username": []
+    }
+}
